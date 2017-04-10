@@ -24,7 +24,7 @@
         <servlet-name>Controller</servlet-name>
         <url-pattern>/Controller</url-pattern>
     </servlet-mapping>
-  
+    
     <servlet>
         <servlet-name>Executa</servlet-name>
         <servlet-class>gerenciador.servlets.Controller</servlet-class>
@@ -33,7 +33,6 @@
         <servlet-name>Executa</servlet-name>
         <url-pattern>/Executa</url-pattern>
     </servlet-mapping>
-    
     
     <session-config>
         <session-timeout>

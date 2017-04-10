@@ -5,22 +5,15 @@
  */
 package gerenciador.servlets;
 
-import static com.sun.org.apache.xalan.internal.lib.ExsltDatetime.date;
 import gerenciador.beans.Usuario;
 import gerenciador.dao.UsuarioDAO;
-import java.sql.Date;
 import java.sql.SQLException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Amanda
+ * @author Amanda e Gabriel
  */
 public class Cadastro implements Tarefa {
     @Override
@@ -33,34 +26,28 @@ public class Cadastro implements Tarefa {
         String email = req.getParameter("email");
         String senha1 = req.getParameter("senha1");
         String senha2 = req.getParameter("senha2");
-        String uf = req.getParameter("uf");
+        String uf = req.getParameter("idEstado");
+        String dataEmTexto = req.getParameter("datanasc");        
+        
         String n = req.getParameter("cc");
-        Boolean nivel = Boolean.getBoolean(n);;
-       
-        String dataEmTexto = req.getParameter("datanasc");
-        Date date = (Date) new SimpleDateFormat("dd/MM/yyyy").parse(dataEmTexto);
+        Boolean nivel = n.equals("1")?true:false;       
 
         Boolean emailValido = new UsuarioDAO().validarEmail(email);
         Boolean senhaValida = new Usuario().validarSenha(senha1, senha2);
-        
+
         if(emailValido == true && senhaValida == true) {
             UsuarioDAO usu = new UsuarioDAO();
             try {
-                usu.cadastrar(email, senha1, date ,endereco, uf,  cidade, nivel, nome);
-            } catch (SQLException ex) {
-                Logger.getLogger(Cadastro.class.getName()).log(Level.SEVERE, null, ex);
-            }
-
-            if(cadastro == true){
-                pagina = "/WEB-INF/TelaPrincipal.html";
+                usu.cadastrar(email, senha1, dataEmTexto ,endereco, uf,  cidade, nivel, nome);
+            } catch (SQLException ex) { //ERRO AO CADASTRAR
+                pagina ="cadastro.html";
                 return pagina;
-            }else{
-                pagina = "cadastro.html";
-                return pagina;  
-            }  
+            }
         }else {    
-            pagina = "cadastro.html";
+            pagina ="cadastro.html";
             return pagina;
         }
+        pagina = nivel+"login.html";
+        return pagina;
     }
 }

@@ -1,5 +1,6 @@
 package gerenciador.beans;
 
+import java.io.PrintWriter;
 import java.util.Date;
 
 /**
@@ -10,13 +11,13 @@ public class Usuario {
     private String nome;
     private String email;
     private String senha;
-    private Date nascimento;
+    private String nascimento;
     private String endereco;
     private String cidade;
     private String uf;
     private Boolean nivel;
 
-    public Usuario(String email, String senha, Date nascimento, String endereco, String uf, String cidade, Boolean nivel, String nome) {
+    public Usuario(String email, String senha, String nascimento, String endereco, String uf, String cidade, Boolean nivel, String nome) {
         this.email = nome;
         this.email = email;
         this.senha = senha;
@@ -28,7 +29,7 @@ public class Usuario {
     }
 
     public Usuario() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+
     }
 
     public String getNome() {
@@ -56,11 +57,11 @@ public class Usuario {
         this.senha = senha;
     }
 
-    public Date getNascimento() {
+    public String getNascimento() {
         return nascimento;
     }
 
-    public void setNascimento(Date nascimento) {
+    public void setNascimento(String nascimento) {
         this.nascimento = nascimento;
     }
 
@@ -80,7 +81,7 @@ public class Usuario {
         this.nivel = nivel;
     }
     
-    public Boolean validarSenha(String senha1, String senha2) {
+    public boolean validarSenha(String senha1, String senha2) {
         if(senha1.equals(senha2)){
             return true;
         }

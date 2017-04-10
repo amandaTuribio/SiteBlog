@@ -1,4 +1,3 @@
-
 package gerenciador.servlets;
 
 import java.io.IOException;
@@ -11,7 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 /**
  *
- * @author Giovani
+ * @author Amanda e Gabriel
  */
 public class Controller extends HttpServlet {
     
@@ -20,7 +19,7 @@ public class Controller extends HttpServlet {
         
         String tarefa = req.getParameter("tarefa");
             
-        if(tarefa == null) {
+        if(tarefa == null) {// NAO PASSOU TAREFA
             RequestDispatcher requestDispatcher = req.getRequestDispatcher("/WEB-INF/SemTarefa.jsp");
             requestDispatcher.forward(req, resp);
         }
@@ -32,7 +31,6 @@ public class Controller extends HttpServlet {
             Tarefa instancia = (Tarefa) classe.newInstance();
             
             String pagina = instancia.executa(req, resp);
-
         
             RequestDispatcher requestDispatcher = req.getRequestDispatcher(pagina);
             requestDispatcher.forward(req, resp);
@@ -41,7 +39,4 @@ public class Controller extends HttpServlet {
             Logger.getLogger(Controller.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-    
-    
-    
 }

@@ -9,7 +9,7 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Giovani
+ * @author Amanda e Gabriel
  */
 public class Login implements Tarefa {
     @Override
@@ -21,7 +21,8 @@ public class Login implements Tarefa {
         Usuario usuario = new UsuarioDAO().busca(email, senha);
  
         if(usuario == null) {
-            pagina = "re.html";
+            // USUARIO NAO TEM CADASTRO 
+            pagina = "cadastro.html";
             return pagina;
         }else {
             HttpSession session = req.getSession();            
