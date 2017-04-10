@@ -15,16 +15,15 @@ public class Login implements Tarefa {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp){
         String pagina;
-        String login = req.getParameter("login");
+        String email = req.getParameter("email");
         String senha = req.getParameter("senha");
         
-        Usuario usuario = new UsuarioDAO().busca(login, senha);
+        Usuario usuario = new UsuarioDAO().busca(email, senha);
  
-        if(usuario==null) {
-            pagina = "index.html";
+        if(usuario == null) {
+            pagina = "re.html";
             return pagina;
         }else {
-
             HttpSession session = req.getSession();            
             session.setAttribute("usuarioLogado", usuario);
             

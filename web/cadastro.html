@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Sistema de Blog</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="StyleSheet" type="text/css" href="Estilo/estilo.css">
+    </head>
+    <body>
+        <div class="login-page">
+            <form action="Controller" method="POST">
+                <input placeholder="Nome" type="text" name="nome">
+                <input placeholder="Endereço" type="text" name="end">
+                <input placeholder="Cidade" type="text" name="cidade">
+                <select>
+                    <option name="uf" value="">Estado</option>
+                    <option name="uf" value="AC">Acre</option>
+                    <option name="uf" value="AL">Alagoas</option>
+                    <option name="uf" value="AP">Amapá</option>
+                    <option name="uf" value="AM">Amazonas</option>
+                    <option name="uf" value="BA">Bahia</option>
+                    <option name="uf" value="CE">Ceará</option>
+                    <option name="uf" value="DF">Distrito Federal</option>
+                    <option name="uf" value="ES">Espirito Santo</option>
+                    <option name="uf" value="GO">Goiás</option>
+                    <option name="uf" value="MA">Maranhão</option>
+                    <option name="uf" value="MS">Mato Grosso do Sul</option>
+                    <option name="uf" value="MT">Mato Grosso</option>
+                    <option name="uf" value="MG">Minas Gerais</option>
+                    <option name="uf" value="PA">Pará</option>
+                    <option name="uf" value="PB">Paraíba</option>
+                    <option name="uf" value="PR">Paraná</option>
+                    <option name="uf" value="PE">Pernambuco</option>
+                    <option name="uf" value="PI">Piauí</option>
+                    <option name="uf" value="RJ">Rio de Janeiro</option>
+                    <option name="uf" value="RN">Rio Grande do Norte</option>
+                    <option name="uf" value="RS">Rio Grande do Sul</option>
+                    <option name="uf" value="RO">Rondônia</option>
+                    <option name="uf" value="RR">Roraima</option>
+                    <option name="uf" value="SC">Santa Catarina</option>
+                    <option name="uf" value="SP">São Paulo</option>
+                    <option name="uf" value="SE">Sergipe</option>
+                    <option name="uf" value="TO">Tocantins</option>
+                </select>
+                <input placeholder="Data de nascimento" type="date" name="datanasc">
+                <input placeholder="Email" type="text" name="email">
+                <input placeholder="Senha" type="password" name="senha1">
+                <input placeholder=" Confirme a senha" type="password" name="senha2">
+                <input type="checkbox" name="cc">Criador de conteudo
+                <br/>
+                <br/>
+                <input class="s" type="submit" value="Cadastrar!">
+                <input type="hidden" name="tarefa" value="Cadastro">
+                <a href="index.html">Ja tenho uma conta</a>
+            </form>
+        </div>
+    </body>
+</html>
