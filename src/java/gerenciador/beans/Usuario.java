@@ -18,7 +18,7 @@ public class Usuario {
     private Boolean nivel;
 
     public Usuario(String email, String senha, String nascimento, String endereco, String uf, String cidade, Boolean nivel, String nome) {
-        this.email = nome;
+        this.nome = nome;
         this.email = email;
         this.senha = senha;
         this.nascimento = nascimento;

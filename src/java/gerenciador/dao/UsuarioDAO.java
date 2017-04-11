@@ -71,5 +71,20 @@ public class UsuarioDAO {
         stmt.execute();
         stmt.close();
     }
-
+    
+    public Usuario buscaEmail(String email) {
+        PreparedStatement st;
+        try {
+            st = connection.prepareStatement("SELECT * FROM usuario where usu_em =\""+ email +"\" ");
+            st.executeQuery();
+            ResultSet rs = st.getResultSet();
+            while(rs.next()){
+                Usuario u = new Usuario(email, rs.getString(3), rs.getString(4), rs.getString(5), rs.getString(6),rs.getString(7), rs.getBoolean(8), rs.getString(9));                
+                return u;
+            }
+        } catch (SQLException ex) {
+            return null;
+        }
+        return null;
+    }
 }

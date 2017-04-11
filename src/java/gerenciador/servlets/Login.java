@@ -1,8 +1,11 @@
 
 package gerenciador.servlets;
 
+import gerenciador.beans.Post;
 import gerenciador.beans.Usuario;
+import gerenciador.dao.PostDAO;
 import gerenciador.dao.UsuarioDAO;
+import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -28,7 +31,10 @@ public class Login implements Tarefa {
             HttpSession session = req.getSession();            
             session.setAttribute("usuarioLogado", usuario);
             
-            pagina = "/WEB-INF/TelaPrincipal.html";
+            Collection<Post> posts = new PostDAO().busca();   
+            req.setAttribute("posts", posts);
+            
+            pagina = "/WEB-INF/TelaPrincipal.jsp";
             return pagina;
         }
     }

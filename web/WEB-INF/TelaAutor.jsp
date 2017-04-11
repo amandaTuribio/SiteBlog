@@ -1,5 +1,5 @@
 <%-- 
-    Document   : TelaPrincipal
+    Document   : TelaAutor
     Created on : 08/04/2017, 18:28:50
     Author     : Amanda
 --%>
@@ -20,7 +20,7 @@
             <img class="im" src="Estilo/blog.png">
             <br>
             <p class="bv">
-                Bem-vindo, ${usuarioLogado.nome}!
+                Posts de ${usuarioLogado.nome}!
             </p>
             <br>
         </div>

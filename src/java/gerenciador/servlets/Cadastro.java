@@ -47,7 +47,7 @@ public class Cadastro implements Tarefa {
             pagina ="cadastro.html";
             return pagina;
         }
-        pagina = nivel+"login.html";
+        pagina = "login.html";
         return pagina;
     }
 }

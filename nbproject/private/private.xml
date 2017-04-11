@@ -3,8 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Amanda/Desktop/SistemaBlog/web/cadastro.html</file>
-            <file>file:/C:/Users/Amanda/Desktop/SistemaBlog/src/java/gerenciador/servlets/Cadastro.java</file>
+            <file>file:/C:/Users/Amanda/Desktop/SistemaBlog/src/java/gerenciador/dao/PostDAO.java</file>
+            <file>file:/C:/Users/Amanda/Desktop/SistemaBlog/web/WEB-INF/TelaAutor.jsp</file>
+            <file>file:/C:/Users/Amanda/Desktop/SistemaBlog/src/java/gerenciador/dao/UsuarioDAO.java</file>
+            <file>file:/C:/Users/Amanda/Desktop/SistemaBlog/web/WEB-INF/TelaPrincipal.jsp</file>
+            <file>file:/C:/Users/Amanda/Desktop/SistemaBlog/web/WEB-INF/TelaAdmin.jsp</file>
         </group>
     </open-files>
 </project-private>

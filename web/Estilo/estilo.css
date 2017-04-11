@@ -14,7 +14,7 @@ and open the template in the editor.
   padding: 8% 0 0;
   margin: auto;
 }
-form {
+form.f {
   position: relative;
   z-index: 1;
   background: #FFFFFF;
@@ -24,7 +24,7 @@ form {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-form input, select, option {
+form.f input, select, option {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -49,16 +49,60 @@ input.s {
 }
 
 body {
-  background: #76b852; /* fallback for old browsers */
-  background: -webkit-linear-gradient(right, #76b852, #8DC26F);
-  background: -moz-linear-gradient(right, #76b852, #8DC26F);
-  background: -o-linear-gradient(right, #76b852, #8DC26F);
-  background: linear-gradient(to left, #76b852, #8DC26F);
-  font-family: "Roboto", sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;      
+    background-image: url('fundo.jpg');
+    background-repeat: no-repeat;
+    background-repeat: no-repeat;
+    width:100%;
+    height:100%;
+    font-family: "Roboto", sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;      
 }
 a {
     font-family: "Roboto", sans-serif;
     font-size: 13px;
+}
+
+img.im {
+    max-width:250px;
+    max-height:200px;
+    margin: 40px 26% 20px 43%;
+}
+
+p.bv{
+    color: white;
+    font-size: 20px;
+    text-align: center;
+}
+
+p.bv a{
+    font-family: "Roboto", sans-serif;
+    font-size: 30px;
+    color: white;
+}
+
+div.posts{
+    background: rgba(225,225,225,0.2);
+    margin: auto;
+    width:80%;
+    height:110%;
+    padding-bottom: 0.8%;
+}
+
+div.posts p{
+    font-family: "Roboto", sans-serif;
+    text-align: center;
+}
+p.tt{
+    font-size: 27px;
+    font-weight:bold;
+}
+
+p.tx{
+    font-size: 20px;
+}
+
+p.a{
+    font-size: 14px;
+    color: gray;
 }
