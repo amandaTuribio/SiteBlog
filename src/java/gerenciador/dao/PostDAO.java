@@ -35,7 +35,7 @@ public class PostDAO {
             ResultSet rs = st.getResultSet();
             
             while(rs.next()){
-                Post p = new Post(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4));
+                Post p = new Post(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5));
                 posts.add(p);
             }
         } catch (SQLException ex) {
@@ -53,7 +53,7 @@ public class PostDAO {
             ResultSet rs = st.getResultSet();
             
             while(rs.next()){
-                Post p = new Post(rs.getString(1),rs.getString(2), rs.getString(3), rs.getString(4));
+                Post p = new Post(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5));
                 posts.add(p);
             }
         } catch (SQLException ex) {
@@ -70,8 +70,7 @@ public class PostDAO {
         stmt.setString(2, email);
         stmt.setString(3,data1);
         stmt.setString(4, texto);
-
-        
+      
         stmt.execute();
         stmt.close();
     }

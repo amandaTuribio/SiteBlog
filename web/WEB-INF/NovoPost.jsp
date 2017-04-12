@@ -6,25 +6,23 @@
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-
-<head>
+<html>
+    <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
          <link rel="StyleSheet" type="text/css" href="Estilo/estilo.css">
         <title>Blog</title>
     </head>
     <body>
-        <div class="blog" >
-            <form action="Controller" method="POST">
-                <input type="submit" name="menu" value="Administrar Blog" />
-                <input type="submit" name="menu" value="Meus posts" />
-                <input type="submit" name="menu" value="Logout" />
-                <input type="hidden" name="tarefa" value="Menu">
-            </form>
-        </div>
+            <ul class="u">
+                <li class="home"><a href="Controller?tarefa=Home">Home</a></li> 
+                <li class="home"><a href="Controller?tarefa=Conta">Editar Conta</a></li>                
+                <li class="home"><a href="Controller?tarefa=MPost">Meus Posts</a></li>
+                <li class="home"><a href="Controller?tarefa=Logout">Logout</a></li>              
+            </ul>   
         <div class="login-page">
             <form class="f" action="Controller" method="POST">                
                 <input placeholder="Titulo" type="text" name="titulo">               
-                <input placeholder="Seu Post" type="textarea" name="tex">
+                <textarea placeholder="Seu Post" rows="5" cols="38" name="tex"></textarea>
                 <input class="s" type="submit" value="Postar!">
                 <input type="hidden" name="tarefa" value="CadastroPost">
             </form>

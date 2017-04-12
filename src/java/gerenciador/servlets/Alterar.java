@@ -21,7 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 public class Alterar implements Tarefa {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp){
-        String pagina;
+        String pagina= null;
         
         String nome = req.getParameter("nome");
         String endereco = req.getParameter("end");
@@ -32,33 +32,71 @@ public class Alterar implements Tarefa {
         String uf = req.getParameter("idEstado");
         String dataEmTexto = req.getParameter("datanasc");        
         Boolean nivel=null;
-        
         String n = req.getParameter("cc");
-        if(n== null){
+        if(n == null){
             nivel =  false;
         }else{
             nivel = true;
         } 
         
-        String e = new Filtro().getUsuario(req);
-        Boolean emailValido = null;
+        // Verificar email e senha 
+        Boolean emailValido = null;        
         
-        if(e.equals(email)){ 
+        Usuario usuario = new Filtro().getU(req);
+
+        if(email.isEmpty()){
+            email = usuario.getEmail();
+            emailValido = true;
+        }else if(email.equals(usuario.getEmail())){ 
             emailValido = true;
         }else{
             emailValido = new UsuarioDAO().validarEmail(email);
-        }
-            
+        }   
+
         Boolean senhaValida = new Usuario().validarSenha(senha1, senha2);
 
-        if(emailValido == true && senhaValida == true && !email.isEmpty()) {
+        // OUTROS DADOS 
+        
+        if(nome.isEmpty()){
+            nome = usuario.getNome();
+        }
+        if(endereco.isEmpty()){
+            endereco = usuario.getEndereco();
+        }
+        if(cidade.isEmpty()){
+            cidade = usuario.getCidade();
+        }
+        if(uf.isEmpty()){
+            uf = usuario.getUf();
+        }
+        if(dataEmTexto.isEmpty()){
+            dataEmTexto = usuario.getNascimento();
+        }
+        
+        if(emailValido == true && senhaValida == true) {
             UsuarioDAO usu = new UsuarioDAO();
-            usu.alterar(email, senha1, dataEmTexto ,endereco, uf,  cidade, nivel, nome); 
+            try { 
+                usu.alterar(email, senha1, dataEmTexto ,endereco, uf,  cidade, nivel, nome);
+            } catch (SQLException ex){
+                pagina = "/WEB-INF/TelaAdmin.jsp";
+                return pagina;
+            }
         }else {    
-            pagina ="cadastro.html";
+            pagina = "/WEB-INF/TelaAdmin.jsp";
             return pagina;
         }
-        pagina = "index.html";
+        
+        Boolean niv = new Filtro().getNivel(req);
+        if(niv){ 
+            Collection<Post> posts = new PostDAO().busca();   
+            req.setAttribute("posts", posts);
+            pagina = "/WEB-INF/TelaPrincipal.jsp";
+        }else{
+            Collection<Post> posts = new PostDAO().busca();   
+            req.setAttribute("posts", posts);
+            pagina = "/WEB-INF/TelaPrincipalSP.jsp";
+        }
+        
         return pagina;
     }
 }

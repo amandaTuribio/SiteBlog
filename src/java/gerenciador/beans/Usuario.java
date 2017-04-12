@@ -13,7 +13,7 @@ public class Usuario {
     private String senha;
     private String nascimento;
     private String endereco;
-    private String cidade;
+    private String c;
     private String uf;
     private Boolean nivel;
 
@@ -24,13 +24,30 @@ public class Usuario {
         this.nascimento = nascimento;
         this.endereco = endereco;
         this.uf = uf;
-        this.cidade = cidade;
+        this.c = cidade;
         this.nivel = nivel;
     }
 
     public Usuario() {
 
     }
+
+    public String getCidade() {
+        return c;
+    }
+
+    public void setCidade(String cidade) {
+        this.c= cidade;
+    }
+
+    public String getUf() {
+        return uf;
+    }
+
+    public void setUf(String uf) {
+        this.uf = uf;
+    }
+    
 
     public String getNome() {
         return nome;

@@ -18,10 +18,10 @@ and open the template in the editor.
     </head>
     <body>
         <div class="login-page">
-            <form class="f" action="Controller" method="POST">
+            <form class="f" action="Controller" method="POST">                          
                 <input placeholder="${usuarioLogado.nome}" type="text" name="nome">
                 <input placeholder="${usuarioLogado.endereco}" type="text" name="end">
-                <input placeholder="${usuarioLogado.cidade}" type="text" name="cidade">
+                <input placeholder="Cidade" type="text" name="cidade">
                 <select name="idEstado">
                     <option value="">Estado</option>
                     <option value="AC">Acre</option>

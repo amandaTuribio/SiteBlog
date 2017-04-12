@@ -16,24 +16,12 @@
         <title>Blog</title>
     </head>
     <body>
-        <!--
-        <nav>
-            <ul class="menu">
-                  <li><a href="Controller?tarefa=MPost">Meus Posts</a></li>
-                  <li><a href="Controller?tarefa=Conta">Minha Conta</a></li>
-                  <li><a href="Controller?tarefa=Logout">Logout</a></li>              
+            <ul class="u">
+                <li class="home"><a href="Controller?tarefa=Home">Home</a></li> 
+                <li class="home"><a href="Controller?tarefa=Conta">Editar Conta</a></li>                
+                <li class="home"><a href="Controller?tarefa=MPost">Meus Posts</a></li>
+                <li class="home"><a href="Controller?tarefa=Logout">Logout</a></li>              
             </ul>
-        </nav>
-        -->
-        <div class="blog" >
-            <form action="Controller" method="POST">
-                <input type="submit" name="menu" value="Meus posts" />
-                <input type="submit" name="menu" value="Minha Conta" />
-                <input type="submit" name="menu" value="Logout" />
-                <input type="hidden" name="tarefa" value="Menu">
-            </form>
-        </div>
-        
             <img class="im" src="Estilo/blog.png">
             <br>
 
@@ -41,7 +29,7 @@
                 ArrayList<Post> posts = (ArrayList<Post>)request.getAttribute("posts");
                 for(Post post : posts){
                     out.println("<div class='posts'>");
-                    out.println("<p class='ti'>" + post.getTitulo() + "</p>");
+                    out.println("<p class='ti'><br>" + post.getTitulo() + "</br></p>");
                     out.println("<p class='tx'>" + post.getTexto() + "</p>");
                     out.println("<p class='a'> Postado por " + post.getAutor() + " em " + post.getData() + ". </p>");
                     out.println("</div>");

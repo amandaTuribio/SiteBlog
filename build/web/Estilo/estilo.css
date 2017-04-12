@@ -25,7 +25,7 @@ form.f {
   text-align: center;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2), 0 5px 5px 0 rgba(0, 0, 0, 0.24);
 }
-form.f input, select, option {
+form.f input, select, option, textarea {
   font-family: "Roboto", sans-serif;
   outline: 0;
   background: #f2f2f2;
@@ -50,14 +50,12 @@ input.s {
 }
 
 body {
-    background-image: url('fundo.jpg');
-    background-repeat: no-repeat;
-    background-repeat: no-repeat;
-    width:99%;
-    height:100%;
-    font-family: "Roboto", sans-serif;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;      
+    background: url('fundo.jpg') no-repeat center top fixed;
+ 
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
 }
 a {
     font-family: "Roboto", sans-serif;
@@ -95,7 +93,7 @@ div.posts p{
     text-align: center;
 }
 p.tt{
-    font-size: 27px;
+    font-size: 35px;
     font-weight:bold;
 }
 
@@ -125,4 +123,35 @@ div.blog{
     margin-top: 0px;
     margin-right: 0px;
 }
+ul.u {
+    list-style-type: none;
+    margin: 0;
+    overflow: hidden;
+    background-color: #8E236B;
+    
+}
 
+li.home {
+    float: left;
+    padding-left: 13%;
+}
+
+li.h{
+    float: left;
+    padding-left: 19%;
+}
+
+li.home a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+}
+li.h a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
+}

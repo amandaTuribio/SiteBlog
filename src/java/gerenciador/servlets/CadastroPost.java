@@ -26,7 +26,7 @@ public class CadastroPost implements Tarefa {
         
         String titulo = req.getParameter("titulo");
         String texto = req.getParameter("tex");
- 
+        
         String data = "dd/MM/yyyy";
 	String data1;
 	java.util.Date agora = new java.util.Date();;
@@ -35,7 +35,7 @@ public class CadastroPost implements Tarefa {
 	
         String email= new Filtro().getUsuario(req);
         
-        if(email.equals(null)){ //ususario nao logado
+        if(email.equals(null)){ 
             pagina = "index.html";
             return pagina;
         }
@@ -50,7 +50,6 @@ public class CadastroPost implements Tarefa {
         Collection<Post> posts = new PostDAO().buscaAutor(email);   
         req.setAttribute("posts", posts);
         pagina = "/WEB-INF/TelaAutor.jsp";
-        
 
         return pagina;
     }
