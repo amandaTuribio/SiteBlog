@@ -87,4 +87,8 @@ public class UsuarioDAO {
         }
         return null;
     }
+
+    public void alterar(String email, String senha1, String dataEmTexto, String endereco, String uf, String cidade, Boolean nivel, String nome) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

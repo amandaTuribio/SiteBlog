@@ -61,4 +61,18 @@ public class PostDAO {
         }
         return posts;
     }
+
+    public void cadastrar(String titulo, String texto, String data1, String email) throws SQLException {
+        PreparedStatement stmt;
+            stmt = connection.prepareStatement("INSERT INTO `post`(`post_tt`, `post_at`, `post_dt`, `post_tx`) "
+                    + "VALUES (?,?,?,?)");
+        stmt.setString(1, titulo); 
+        stmt.setString(2, email);
+        stmt.setString(3,data1);
+        stmt.setString(4, texto);
+
+        
+        stmt.execute();
+        stmt.close();
+    }
 }

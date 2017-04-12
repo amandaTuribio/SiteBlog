@@ -14,6 +14,7 @@ and open the template in the editor.
   padding: 8% 0 0;
   margin: auto;
 }
+
 form.f {
   position: relative;
   z-index: 1;
@@ -52,7 +53,7 @@ body {
     background-image: url('fundo.jpg');
     background-repeat: no-repeat;
     background-repeat: no-repeat;
-    width:100%;
+    width:99%;
     height:100%;
     font-family: "Roboto", sans-serif;
     -webkit-font-smoothing: antialiased;
@@ -66,7 +67,7 @@ a {
 img.im {
     max-width:250px;
     max-height:200px;
-    margin: 40px 26% 20px 43%;
+    margin:35px 26% 10px 43%;
 }
 
 p.bv{
@@ -106,3 +107,22 @@ p.a{
     font-size: 14px;
     color: gray;
 }
+
+.esquerdo-inferior{ 
+    position:relative;
+    width:86px;
+    height:82px; 
+    float: right; 
+    margin-bottom: 0;
+    right: 15px; 
+    bottom: 0;
+}
+
+div.blog{
+    width:262px; 
+    height:100%; 
+    float: right;
+    margin-top: 0px;
+    margin-right: 0px;
+}
+

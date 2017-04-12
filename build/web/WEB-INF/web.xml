@@ -14,7 +14,7 @@
         <servlet-name>Login</servlet-name>
         <url-pattern>/Login</url-pattern>
     </servlet-mapping>
-      
+    
     <servlet>
         <servlet-name>Controller</servlet-name>
         <servlet-class>gerenciador.servlets.Controller</servlet-class>
@@ -29,6 +29,7 @@
         <servlet-name>Executa</servlet-name>
         <servlet-class>gerenciador.servlets.Controller</servlet-class>
     </servlet>
+
     <servlet-mapping>
         <servlet-name>Executa</servlet-name>
         <url-pattern>/Executa</url-pattern>

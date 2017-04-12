@@ -25,7 +25,7 @@ public class Login implements Tarefa {
  
         if(usuario == null) {
             // USUARIO NAO TEM CADASTRO 
-            pagina = "cadastro.html";
+            pagina = "index.html";
             return pagina;
         }else {
             HttpSession session = req.getSession();            
@@ -34,7 +34,13 @@ public class Login implements Tarefa {
             Collection<Post> posts = new PostDAO().busca();   
             req.setAttribute("posts", posts);
             
-            pagina = "/WEB-INF/TelaPrincipal.jsp";
+            Boolean n= new Filtro().getNivel(req);
+
+            if(n){ //ususario nao logado
+                pagina = "/WEB-INF/TelaPrincipal.jsp";
+            }else{
+                pagina = "/WEB-INF/TelaPrincipalSP.jsp";
+            }
             return pagina;
         }
     }

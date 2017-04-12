@@ -5,17 +5,20 @@
  */
 package gerenciador.servlets;
 
+import gerenciador.beans.Post;
 import gerenciador.beans.Usuario;
+import gerenciador.dao.PostDAO;
 import gerenciador.dao.UsuarioDAO;
 import java.sql.SQLException;
+import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Amanda e Gabriel
+ * @author Amanda
  */
-public class Cadastro implements Tarefa {
+public class Alterar implements Tarefa {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp){
         String pagina;
@@ -37,18 +40,20 @@ public class Cadastro implements Tarefa {
             nivel = true;
         } 
         
+        String e = new Filtro().getUsuario(req);
+        Boolean emailValido = null;
         
-        Boolean emailValido = new UsuarioDAO().validarEmail(email);
+        if(e.equals(email)){ 
+            emailValido = true;
+        }else{
+            emailValido = new UsuarioDAO().validarEmail(email);
+        }
+            
         Boolean senhaValida = new Usuario().validarSenha(senha1, senha2);
 
         if(emailValido == true && senhaValida == true && !email.isEmpty()) {
             UsuarioDAO usu = new UsuarioDAO();
-            try {
-                usu.cadastrar(email, senha1, dataEmTexto ,endereco, uf,  cidade, nivel, nome);
-            } catch (SQLException ex) { //ERRO AO CADASTRAR
-                pagina ="cadastro.html";
-                return pagina;
-            }
+            usu.alterar(email, senha1, dataEmTexto ,endereco, uf,  cidade, nivel, nome); 
         }else {    
             pagina ="cadastro.html";
             return pagina;
