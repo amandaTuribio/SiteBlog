@@ -51,7 +51,6 @@ input.s {
 
 body {
     background: url('fundo.jpg') no-repeat center top fixed;
- 
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -107,7 +106,7 @@ p.a{
 }
 
 .esquerdo-inferior{ 
-    position:relative;
+    position:absolute;
     width:86px;
     height:82px; 
     float: right; 
@@ -127,7 +126,8 @@ ul.u {
     list-style-type: none;
     margin: 0;
     overflow: hidden;
-    background-color: #8E236B;
+    background-color: #EE4000;
+    /*background-color: #8E236B;*/
     
 }
 

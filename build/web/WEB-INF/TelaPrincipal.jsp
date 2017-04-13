@@ -22,7 +22,7 @@
                 <li class="home"><a href="Controller?tarefa=MPost">Meus Posts</a></li>
                 <li class="home"><a href="Controller?tarefa=Logout">Logout</a></li>              
             </ul>
-            <img class="im" src="Estilo/blog.png">
+            <img class="im" src="Estilo/i.png">
             <br>
 
            <%

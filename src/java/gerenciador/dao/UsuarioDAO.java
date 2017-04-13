@@ -89,17 +89,21 @@ public class UsuarioDAO {
     }
 
     public void alterar(String email, String senha1, String dataEmTexto, String endereco, String uf, String cidade, Boolean nivel, String nome) throws SQLException {   
-        PreparedStatement stmt;
-        stmt = connection.prepareStatement("UPDATE usuario WHERE usu_em=? SET usu_em=?, usu_sn=?, usu_dt_ns=?, usu_ru=?, usu_uf=?, usu_ci=?,usu_cc=?,usu_nm=?");
-                    
-        stmt.setString(1, email); 
-        stmt.setString(2, senha1);
-        stmt.setString(3,dataEmTexto);
-        stmt.setString(4, endereco);
+ 
+         PreparedStatement stmt;
+            stmt = connection.prepareStatement("UPDATE usuario SET usu_em=?, usu_sn=?, usu_dt_ns=?, usu_ru=?, usu_uf=?, usu_ci=?,usu_cc=?,usu_nm=?  WHERE usu_em=?");
+
+        stmt.setString(1, email);
+        stmt.setString(2,senha1);
+        stmt.setString(3, dataEmTexto);
+        stmt.setString(4,endereco);
         stmt.setString(5,uf);
         stmt.setString(6,cidade);
-        stmt.setString(8,nome);
         stmt.setBoolean(7,nivel);
-        stmt.setString(9,email);
+        stmt.setString(8,nome);
+        stmt.setString(9, email);
+        
+        stmt.execute();
+        stmt.close();
     }
 }
