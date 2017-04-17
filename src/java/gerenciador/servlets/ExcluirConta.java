@@ -6,8 +6,9 @@
 package gerenciador.servlets;
 
 import gerenciador.beans.Post;
-import gerenciador.beans.Usuario;
 import gerenciador.dao.PostDAO;
+import gerenciador.dao.UsuarioDAO;
+import java.sql.SQLException;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -16,21 +17,30 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Amanda
  */
-public class MPost implements Tarefa {
+public class ExcluirConta implements Tarefa {
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
-        Usuario usuario = new Filtro().getU(req);
-        String pagina = null;
         
-        if(usuario == null){ //ususario nao logado
+        String pagina;
+        
+        String email= new Filtro().getUsuario(req);
+        
+        if(email.equals(null)){ 
             pagina = "index.jsp";
-        }else{
-            Collection<Post> posts = new PostDAO().buscaAutor(usuario.getEmail());   
-            req.setAttribute("posts", posts);
-            pagina = "/WEB-INF/TelaAutor.jsp";
+            return pagina;
         }
-        return pagina;
-    }
+
+        UsuarioDAO usu = new UsuarioDAO();
+        
+        try {
+            usu.exclui(email);
+        } catch (SQLException ex) {
+            pagina = "/WEB-INF/index.jsp";
+        }
+        
+        pagina = "cadastro.html";
+
+        return pagina;    }
     
 }

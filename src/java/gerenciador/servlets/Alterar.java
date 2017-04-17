@@ -13,6 +13,7 @@ import java.sql.SQLException;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 /**
  *
@@ -64,7 +65,7 @@ public class Alterar implements Tarefa {
             endereco = usuario.getEndereco();
         }
         if(cidade.isEmpty()){
-            cidade = usuario.getCidade();
+            cidade = usuario.getC();
         }
         if(uf.isEmpty()){
             uf = usuario.getUf();
@@ -77,6 +78,11 @@ public class Alterar implements Tarefa {
             UsuarioDAO usu = new UsuarioDAO();
             try { 
                 usu.alterar(email, senha1, dataEmTexto ,endereco, uf,  cidade, nivel, nome);
+
+                Usuario usua = new UsuarioDAO().busca(email, senha1);
+                HttpSession session = req.getSession();            
+                session.setAttribute("usuarioLogado", usua);
+                
             } catch (SQLException ex){
                 pagina = "/WEB-INF/TelaAdmin.jsp";
                 return pagina;

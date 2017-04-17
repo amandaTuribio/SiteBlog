@@ -90,8 +90,8 @@ public class UsuarioDAO {
 
     public void alterar(String email, String senha1, String dataEmTexto, String endereco, String uf, String cidade, Boolean nivel, String nome) throws SQLException {   
  
-         PreparedStatement stmt;
-            stmt = connection.prepareStatement("UPDATE usuario SET usu_em=?, usu_sn=?, usu_dt_ns=?, usu_ru=?, usu_uf=?, usu_ci=?,usu_cc=?,usu_nm=?  WHERE usu_em=?");
+        PreparedStatement stmt;
+        stmt = connection.prepareStatement("UPDATE usuario SET usu_em=?, usu_sn=?, usu_dt_ns=?, usu_ru=?, usu_uf=?, usu_ci=?,usu_cc=?,usu_nm=?  WHERE usu_em=?");
 
         stmt.setString(1, email);
         stmt.setString(2,senha1);
@@ -102,6 +102,17 @@ public class UsuarioDAO {
         stmt.setBoolean(7,nivel);
         stmt.setString(8,nome);
         stmt.setString(9, email);
+        
+        stmt.execute();
+        stmt.close();
+    }
+
+    public void exclui(String email) throws SQLException {
+
+         PreparedStatement stmt;
+            stmt = connection.prepareStatement("DELETE FROM usuario WHERE usu_em = ? ");
+
+        stmt.setString(1, email);
         
         stmt.execute();
         stmt.close();

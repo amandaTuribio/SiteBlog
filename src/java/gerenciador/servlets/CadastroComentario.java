@@ -5,9 +5,9 @@
  */
 package gerenciador.servlets;
 
-
-
+import gerenciador.beans.Comentario;
 import gerenciador.beans.Post;
+import gerenciador.dao.ComentarioDAO;
 import gerenciador.dao.PostDAO;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
@@ -19,38 +19,41 @@ import javax.servlet.http.HttpServletResponse;
  *
  * @author Amanda
  */
-public class CadastroPost implements Tarefa {
+public class CadastroComentario implements Tarefa {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp){
         String pagina;
         
-        String titulo = req.getParameter("titulo");
+        String postid = req.getParameter("postid");
         String texto = req.getParameter("tex");
-        
-        String data = "dd/MM/yyyy";
+	String data = "dd/MM/yyyy";
 	String data1;
 	java.util.Date agora = new java.util.Date();;
 	SimpleDateFormat formata = new SimpleDateFormat(data);
 	data1 = formata.format(agora);
-	
+        
+
         String email= new Filtro().getUsuario(req);
         
         if(email.equals(null)){ 
             pagina = "index.jsp";
             return pagina;
         }
-
-        PostDAO post = new PostDAO();
+        
+        ComentarioDAO comen = new ComentarioDAO();
         try {
-            post.cadastrar(titulo, texto, data1, email);
+            comen.cadastrar(texto, postid, email, data1);
         } catch (SQLException ex) {
-            pagina = "/WEB-INF/NovoPost.jsp";
+            pagina = "/WEB-INF/NovoComentario.jsp";
         }
         
-        Collection<Post> posts = new PostDAO().buscaAutor(email);   
-        req.setAttribute("posts", posts);
-        pagina = "/WEB-INF/TelaAutor.jsp";
+        Post post = new PostDAO().buscaId(postid);
+        Collection<Comentario> c = new ComentarioDAO().buscaComentario(postid);
 
+        req.setAttribute("c", c);
+        req.setAttribute("post", post);
+        
+        pagina = "/WEB-INF/UnicoPost.jsp";
         return pagina;
     }
 }

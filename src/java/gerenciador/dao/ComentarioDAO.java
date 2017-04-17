@@ -6,6 +6,7 @@
 package gerenciador.dao;
 
 import gerenciador.Factory.ConnectionFactory;
+import gerenciador.beans.Comentario;
 import gerenciador.beans.Post;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -18,30 +19,30 @@ import java.util.Collection;
  *
  * @author Amanda
  */
-public class PostDAO {
+public class ComentarioDAO {
     
     private final Connection connection;
     
-    public  PostDAO(){
+    public  ComentarioDAO(){
          this.connection = new ConnectionFactory().getConnection();
     }
 
-    public Collection<Post> busca() {
-        Collection<Post> posts = new ArrayList<>();
+    public Collection<Comentario> buscaComentario(String id) {
+        Collection<Comentario> coments = new ArrayList<>();
 	PreparedStatement st;
         try {
-            st = connection.prepareStatement("SELECT * FROM post");
+            st = connection.prepareStatement("SELECT * FROM comentario WHERE com_post_id=\""+ id +"\"");
             st.executeQuery();
             ResultSet rs = st.getResultSet();
             
             while(rs.next()){
-                Post p = new Post(rs.getInt(1), rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5));
-                posts.add(p);
+                Comentario c = new Comentario(rs.getInt(1), rs.getString(2), rs.getString(4), rs.getString(5));
+                coments.add(c);
             }
         } catch (SQLException ex) {
             return null;
         }
-        return posts;
+        return coments;
     }
     
     public Collection<Post> buscaAutor(String email) {
@@ -62,35 +63,16 @@ public class PostDAO {
         return posts;
     }
 
-    public void cadastrar(String titulo, String texto, String data1, String email) throws SQLException {
+    public void cadastrar(String des, String idPost, String autor, String data) throws SQLException {
         PreparedStatement stmt;
-            stmt = connection.prepareStatement("INSERT INTO `post`(`post_tt`, `post_at`, `post_dt`, `post_tx`) "
+            stmt = connection.prepareStatement("INSERT INTO `comentario`(`com_ds`, `com_post_id`, `com_au`, `com_dt`) "
                     + "VALUES (?,?,?,?)");
-        stmt.setString(1, titulo); 
-        stmt.setString(2, email);
-        stmt.setString(3,data1);
-        stmt.setString(4, texto);
+        stmt.setString(1, des); 
+        stmt.setString(2, idPost);
+        stmt.setString(3, autor);
+        stmt.setString(4, data);
       
         stmt.execute();
         stmt.close();
-    }
-    
-    public Post buscaId(String id) {
-	PreparedStatement st;
-        try {
-            st = connection.prepareStatement("SELECT * FROM post WHERE post_cd=\""+ id +"\"");
-            st.executeQuery();
-            ResultSet rs = st.getResultSet();
-            
-           while(rs.next()){
-                Post p = new Post(rs.getInt(1),rs.getString(2),rs.getString(3), rs.getString(4), rs.getString(5));
-                return p;
-            }
-        } catch (SQLException ex) {
-            return null;
-        }
-        return null;
-        
-        
     }
 }

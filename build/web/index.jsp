@@ -1,9 +1,10 @@
+<%-- 
+    Document   : index
+    Created on : 15/04/2017, 13:21:41
+    Author     : Amanda
+--%>
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
 <html>
     <head>
         <title>Sistema de Blog</title>
@@ -13,7 +14,7 @@ and open the template in the editor.
     </head>
     <body>
         <div class="login-page">
-            <form class="f" action="Controller" method="POST">
+            <form class="f" action="Controller"  method="POST">
                 <input placeholder="Email" type="text" name="email">
                 <input placeholder="Senha" type="password" name="senha">
                 <input class="s" type="submit" value="Fazer Login">

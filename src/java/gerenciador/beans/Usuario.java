@@ -32,11 +32,11 @@ public class Usuario {
 
     }
 
-    public String getCidade() {
+    public String getC() {
         return c;
     }
 
-    public void setCidade(String cidade) {
+    public void setC(String cidade) {
         this.c= cidade;
     }
 

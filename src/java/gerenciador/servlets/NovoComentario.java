@@ -5,19 +5,24 @@
  */
 package gerenciador.servlets;
 
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
  * @author Amanda
- 
-public class Admin  implements Tarefa {
+ */
+public class NovoComentario implements Tarefa{
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
+        String id = req.getParameter("postid");
         
+        req.setAttribute("postid", id);
+        return "/WEB-INF/NovoComentario.jsp";
     }
     
 }
-*/
+
+

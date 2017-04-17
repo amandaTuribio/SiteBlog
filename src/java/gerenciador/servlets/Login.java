@@ -25,7 +25,7 @@ public class Login implements Tarefa {
  
         if(usuario == null) {
             // USUARIO NAO TEM CADASTRO 
-            pagina = "index.html";
+            pagina = "index.jsp";
             return pagina;
         }else {
             HttpSession session = req.getSession();            

@@ -23,19 +23,20 @@
                 <li class="home"><a href="Controller?tarefa=Logout">Logout</a></li>              
             </ul>
             <img class="im" src="Estilo/blog.png">
-            <p class="bv">Posts de ${usuarioLogado.nome}</p> 
             <br>
 
            <%
                 ArrayList<Post> posts = (ArrayList<Post>)request.getAttribute("posts");
                 for(Post post : posts){
                     out.println("<div class='posts'>");
-                    out.println("<p class='ti'><br>" + post.getTitulo() + "</br></p>");
+                    out.println("<form action='Controller' method='post'><input type='submit' value='" + post.getTitulo() + "' />");
+                    out.println("<input type='hidden' name ='postid' value='" + post.getCodigo() + "'/>");
+                    out.println("<input type='hidden' name='tarefa' value='UnicoPost'></form>");
                     out.println("<p class='tx'>" + post.getTexto() + "</p>");
                     out.println("<p class='a'> Postado por " + post.getAutor() + " em " + post.getData() + ". </p>");
-                    out.println("</div>");
+                    out.println("</div><br>");
                 }
-            %> 
+            %>
 
             <a href="Controller?tarefa=NovoPost"><img class="esquerdo-inferior"  src="Estilo/np.png"></a> 
     </body>

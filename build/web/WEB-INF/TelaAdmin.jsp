@@ -21,7 +21,7 @@ and open the template in the editor.
             <form class="f" action="Controller" method="POST">                          
                 <input placeholder="${usuarioLogado.nome}" type="text" name="nome">
                 <input placeholder="${usuarioLogado.endereco}" type="text" name="end">
-                <input placeholder="Cidade" type="text" name="cidade">
+                <input placeholder="${usuarioLogado.c}" type="text" name="cidade">
                 <select name="idEstado">
                     <option value="">Estado</option>
                     <option value="AC">Acre</option>
@@ -52,7 +52,7 @@ and open the template in the editor.
                     <option value="SE">Sergipe</option>
                     <option value="TO">Tocantins</option>
                 </select>
-                <input placeholder="Data de nascimento" type="date" name="datanasc">
+                <input placeholder="${usuarioLogado.nascimento}" type="date" name="datanasc">
                 <input placeholder="${usuarioLogado.email}" type="email" name="email">
                 <input placeholder="Senha" type="password" name="senha1">
                 <input placeholder=" Confirme a senha" type="password" name="senha2">
@@ -61,7 +61,9 @@ and open the template in the editor.
                 <br/>
                 <input class="s" type="submit" value="Alterar">
                 <input type="hidden" name="tarefa" value="Alterar">
+                <a href="Controller?tarefa=ExcluirConta">Excluir Conta</a>
             </form>
+                
         </div>
     </body>
 </html>

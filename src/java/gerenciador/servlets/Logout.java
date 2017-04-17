@@ -17,7 +17,7 @@ public class Logout implements Tarefa{
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
         req.getSession().removeAttribute("usuarioLogado");
-        String pagina = "index.html";
+        String pagina = "index.jsp";
         return pagina;
     }
     

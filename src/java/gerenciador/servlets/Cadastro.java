@@ -53,7 +53,7 @@ public class Cadastro implements Tarefa {
             pagina ="cadastro.html";
             return pagina;
         }
-        pagina = "index.html";
+        pagina = "index.jsp";
         return pagina;
     }
 }

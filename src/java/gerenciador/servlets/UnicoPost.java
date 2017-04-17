@@ -5,8 +5,9 @@
  */
 package gerenciador.servlets;
 
+import gerenciador.beans.Comentario;
 import gerenciador.beans.Post;
-import gerenciador.beans.Usuario;
+import gerenciador.dao.ComentarioDAO;
 import gerenciador.dao.PostDAO;
 import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
@@ -14,23 +15,22 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Amanda
+ * @author Aluno
  */
-public class MPost implements Tarefa {
+public class UnicoPost implements Tarefa {
 
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp) {
-        Usuario usuario = new Filtro().getU(req);
-        String pagina = null;
+
+        String id = req.getParameter("postid");
         
-        if(usuario == null){ //ususario nao logado
-            pagina = "index.jsp";
-        }else{
-            Collection<Post> posts = new PostDAO().buscaAutor(usuario.getEmail());   
-            req.setAttribute("posts", posts);
-            pagina = "/WEB-INF/TelaAutor.jsp";
-        }
+        Post post = new PostDAO().buscaId(id);
+        Collection<Comentario> c = new ComentarioDAO().buscaComentario(id);
+        
+        req.setAttribute("c", c);
+        req.setAttribute("post", post);
+        String pagina = "/WEB-INF/UnicoPost.jsp";
         return pagina;
-    }
-    
+   }
 }
+    
