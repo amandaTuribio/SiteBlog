@@ -20,7 +20,7 @@ public class Comentario {
         this.data = data;
         this.autor = autor;
     }
-
+    
     public String getData() {
         return data;
     }
@@ -37,8 +37,6 @@ public class Comentario {
         this.autor = autor;
     }
     
-    
-
     public String getDescricao() {
         return descricao;
     }

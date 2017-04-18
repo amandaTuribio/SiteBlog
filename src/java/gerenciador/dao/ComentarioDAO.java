@@ -75,4 +75,13 @@ public class ComentarioDAO {
         stmt.execute();
         stmt.close();
     }
+
+    public void exclui(String id) throws SQLException {
+        PreparedStatement stmt;
+        stmt = connection.prepareStatement("DELETE FROM comentario WHERE com_id = ? ");
+
+        stmt.setString(1, id);
+        
+        stmt.execute();
+        stmt.close();       }
 }

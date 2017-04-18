@@ -93,4 +93,13 @@ public class PostDAO {
         
         
     }
+
+    public void exclui(String id) throws SQLException {
+        PreparedStatement stmt;
+        stmt = connection.prepareStatement("DELETE FROM post WHERE post_cd = ? ");
+
+        stmt.setString(1, id);
+        
+        stmt.execute();
+        stmt.close();    }
 }

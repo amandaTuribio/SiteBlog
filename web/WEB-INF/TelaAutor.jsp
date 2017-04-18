@@ -29,11 +29,17 @@
                 ArrayList<Post> posts = (ArrayList<Post>)request.getAttribute("posts");
                 for(Post post : posts){
                     out.println("<div class='posts'>");
-                    out.println("<form action='Controller' method='post'><input type='submit' value='" + post.getTitulo() + "' />");
+                    out.println("<form action='Controller' method='post'><input type='submit' class='botao01' value='" + post.getTitulo() + "' />");
                     out.println("<input type='hidden' name ='postid' value='" + post.getCodigo() + "'/>");
                     out.println("<input type='hidden' name='tarefa' value='UnicoPost'></form>");
                     out.println("<p class='tx'>" + post.getTexto() + "</p>");
-                    out.println("<p class='a'> Postado por " + post.getAutor() + " em " + post.getData() + ". </p>");
+                    out.println("<p class='a'> Postado por " + post.getAutor() + " em " + post.getData() + ".");
+
+                    out.println("<form action='Controller' method='post'>");
+                    out.println("<input type='hidden' name ='postid' value='" + post.getCodigo() + "'/></p>");
+                    out.println("<input type='hidden' name='tarefa' value='ExcluirPost'/>");
+                    out.println("<input class='esquerdo-inferior-p' type=image src='Estilo/ex.png'></form> ");
+                    
                     out.println("</div><br>");
                 }
             %>

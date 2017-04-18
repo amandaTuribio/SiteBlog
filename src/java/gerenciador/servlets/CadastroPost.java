@@ -9,6 +9,7 @@ package gerenciador.servlets;
 
 import gerenciador.beans.Post;
 import gerenciador.dao.PostDAO;
+import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -23,7 +24,6 @@ public class CadastroPost implements Tarefa {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp){
         String pagina;
-        
         String titulo = req.getParameter("titulo");
         String texto = req.getParameter("tex");
         

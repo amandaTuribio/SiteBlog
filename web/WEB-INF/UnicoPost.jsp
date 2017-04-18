@@ -4,6 +4,10 @@
     Author     : Amanda
 --%>
 
+<%@page import="gerenciador.servlets.Filtro"%>
+<%@page import="java.text.SimpleDateFormat"%>
+<%@page import="java.util.Date"%>
+<%@page import="gerenciador.beans.Usuario"%>
 <%@page import="gerenciador.beans.Comentario"%>
 <%@page import="java.util.ArrayList"%>
 <%@page import="gerenciador.dao.PostDAO"%>
@@ -28,19 +32,30 @@
 
            <%
                 Post posts = (Post)request.getAttribute("post");
-                     out.println("<div class='posts'>"); 
-                     out.println("<p class='tx'>" + posts.getTitulo() + "</p>");
-                     out.println("<p class='tx'>" + posts.getTexto() + "</p>");
-                     out.println("<p class='a'> Postado por " + posts.getAutor() + " em " + posts.getData() + ". </p>");
-                     out.println("</div>");
-                     out.println("</br>");
+                    out.println("<div class='posts'>");
+                    out.println("<form action='Controller' method='post'><input type='submit' class='botao01' value='" + posts.getTitulo() + "' />");
+                    out.println("<input type='hidden' name ='postid' value='" + posts.getCodigo() + "'/>");
+                    out.println("<input type='hidden' name='tarefa' value='UnicoPost'></form>");
+                    out.println("<p class='tx'>" + posts.getTexto() + "</p>");
+                    out.println("<p class='a'> Postado por " + posts.getAutor() + " em " + posts.getData() + ". </p>");
+                    out.println("</div><br>");
                      
                 ArrayList<Comentario> c = (ArrayList<Comentario>)request.getAttribute("c");
                 for(Comentario cs : c){
                     out.println("<div class='comen'>");
                     out.println("<p>" + cs.getDescricao() + "</p>");
-                    out.println("<p class='a'> Postado por " + cs.getAutor() + " em " + cs.getData() + ". </p>");
-                    out.println("</div>");
+                    out.println("<p class='a'> Postado por " + cs.getAutor() + " em " + cs.getData() + ". ");
+                
+                    Usuario u = new Filtro().getU(request);
+                    if( u.getEmail().equals(cs.getAutor()) || u.getEmail().equals(posts.getAutor())){
+                        out.println("<form action='Controller' method='post'>");
+                        out.println("<input type='hidden' name ='postid' value='" + posts.getCodigo()  + "'/></p>");
+                        out.println("<input type='hidden' name ='postc' value='" + cs.getCodigo() + "'/></p>");
+                        out.println("<input type='hidden' name='tarefa' value='ExcluirComentario'/>");
+                        out.println("<input class='ex' type=image src='Estilo/ex.png'></form> ");
+                    }
+                    out.println("<hr>");
+                    out.println("</div>");                    
                 }
                 
                 out.println("<form action='Controller' method='post'>");

@@ -15,6 +15,25 @@ and open the template in the editor.
   margin: auto;
 }
 
+.botao01{
+    background-color: #C0C0C0;
+     border: 1px solid #CCCCCE;
+     border-radius: 3px;
+     box-shadow: 0 3px 0 rgba(0, 0, 0, .3),
+                   0 2px 7px rgba(0, 0, 0, 0.2);
+     color: #616165;
+     display: block;
+     font-family: "Trebuchet MS";
+     font-size: 15px;
+     font-weight: bold;
+     line-height: 25px;
+     text-align: center;
+     text-decoration: none;
+     text-transform: uppercase;
+     position: relative;
+     width: 100%
+    }
+
 form.f {
   position: relative;
   z-index: 1;
@@ -65,7 +84,7 @@ a {
 img.im {
     max-width:250px;
     max-height:200px;
-    margin:35px 26% 10px 43%;
+    margin:35px 26% 30px 43%;
 }
 
 p.bv{
@@ -83,19 +102,22 @@ p.bv a{
 div.posts{
     background: rgba(225,225,225,0.2);
     margin: auto;
-    width:80%;
+    width:81%;
     height:95%;
     padding-bottom: 0.8%;
+    padding-left: 2px;
+    padding-right: 2px;
 }
 
 div.comen{
     background: rgba(225,225,225,0.1);
     margin: auto;
-    width:78%;
+    width:79%;
     height:95%;
     padding-bottom: 0.8%;
-    padding-left: 30px;
+    padding-left: 25px;
     padding-top: 2px;
+    padding-right: 15px;
     font-size: 18px;
 }
 
@@ -123,6 +145,25 @@ p.a{
     right: 0; 
     width:86px;
     height:82px; 
+}
+.esquerdo-inferior-p{ 
+    margin-top: -15px;
+    margin-left: 94%;
+    width:46px;
+    height:42px; 
+}
+.ex{
+    margin-top: -60px;
+    margin-left: 90%;
+    width:26px;
+    height:22px; 
+}
+
+hr{
+    width:98%;
+    color: rgba(211, 211, 211, .1);
+    background-color: rgba(211, 211, 211, .1);
+    height: 1px;
 }
 
 div.blog{
