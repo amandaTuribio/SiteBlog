@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gerenciador.dao;
 
 import gerenciador.Factory.ConnectionFactory;
@@ -109,8 +105,8 @@ public class UsuarioDAO {
 
     public void exclui(String email) throws SQLException {
 
-         PreparedStatement stmt;
-            stmt = connection.prepareStatement("DELETE FROM usuario WHERE usu_em = ? ");
+        PreparedStatement stmt;
+        stmt = connection.prepareStatement("DELETE FROM usuario WHERE usu_em = ? ");
 
         stmt.setString(1, email);
         

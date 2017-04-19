@@ -1,15 +1,7 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gerenciador.servlets;
-
-
 
 import gerenciador.beans.Post;
 import gerenciador.dao.PostDAO;
-import java.io.UnsupportedEncodingException;
 import java.sql.SQLException;
 import java.text.SimpleDateFormat;
 import java.util.Collection;
@@ -18,8 +10,9 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Amanda
+ * @author Amanda e Gabriel
  */
+
 public class CadastroPost implements Tarefa {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp){

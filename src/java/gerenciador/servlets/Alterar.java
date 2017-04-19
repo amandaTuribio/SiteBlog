@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package gerenciador.servlets;
 
 import gerenciador.beans.Post;
@@ -17,8 +12,9 @@ import javax.servlet.http.HttpSession;
 
 /**
  *
- * @author Amanda
+ * @author Amanda e Gabriel
  */
+
 public class Alterar implements Tarefa {
     @Override
     public String executa(HttpServletRequest req, HttpServletResponse resp){
@@ -91,17 +87,10 @@ public class Alterar implements Tarefa {
             pagina = "/WEB-INF/TelaAdmin.jsp";
             return pagina;
         }
-        
-        Boolean niv = new Filtro().getNivel(req);
-        if(niv){ 
-            Collection<Post> posts = new PostDAO().busca();   
-            req.setAttribute("posts", posts);
-            pagina = "/WEB-INF/TelaPrincipal.jsp";
-        }else{
-            Collection<Post> posts = new PostDAO().busca();   
-            req.setAttribute("posts", posts);
-            pagina = "/WEB-INF/TelaPrincipalSP.jsp";
-        }
+            
+        Collection<Post> posts = new PostDAO().busca();   
+        req.setAttribute("posts", posts);
+        pagina = "/WEB-INF/TelaPrincipal.jsp";
         
         return pagina;
     }

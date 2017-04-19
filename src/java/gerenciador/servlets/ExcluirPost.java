@@ -5,8 +5,11 @@
  */
 package gerenciador.servlets;
 
+import gerenciador.beans.Post;
+import gerenciador.beans.Usuario;
 import gerenciador.dao.PostDAO;
 import java.sql.SQLException;
+import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -31,8 +34,15 @@ public class ExcluirPost implements Tarefa{
             return pagina;
         }
         
-        pagina = "cadastro.html";
-
+        Usuario usuario = new Filtro().getU(req);
+        
+        if(usuario == null){ //ususario nao logado
+            pagina = "index.jsp";
+        }else{
+            Collection<Post> posts = new PostDAO().buscaAutor(usuario.getEmail());   
+            req.setAttribute("posts", posts);
+            pagina = "/WEB-INF/TelaAutor.jsp";
+        }
         return pagina;
     }
 }

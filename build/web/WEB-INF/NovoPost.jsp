@@ -4,6 +4,9 @@
     Author     : Amanda
 --%>
 
+<%@page import="gerenciador.servlets.Controller"%>
+<%@page import="gerenciador.beans.Usuario"%>
+<%@page import="gerenciador.servlets.Filtro"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -13,14 +16,14 @@
         <title>Blog</title>
     </head>
     <body>
-            <ul class="u">
-                <li class="home"><a href="Controller?tarefa=Home">Home</a></li> 
-                <li class="home"><a href="Controller?tarefa=Conta">Editar Conta</a></li>                
-                <li class="home"><a href="Controller?tarefa=MPost">Meus Posts</a></li>
-                <li class="home"><a href="Controller?tarefa=Logout">Logout</a></li>              
-            </ul>   
+        <ul class="u">
+            <li class="home"><a href="Controller?tarefa=Home">Home</a></li>
+            <li class="home"><a href="Controller?tarefa=Conta">Editar Conta</a></li>
+            <li class="home"><a href="Controller?tarefa=MPost">Meus Posts</a></li>
+            <li class="home"><a href="Controller?tarefa=Logout">Logout</a></li> 
+        </ul>   
         <div class="login-page">
-            <form class="f" action="Controller" method="POST">                
+            <form class="f" action="Controller"  accept-charset="ISO-8859-1" method="POST">                
                 <input placeholder="Titulo" type="text" name="titulo">               
                 <textarea placeholder="Seu Post" rows="5" cols="38" name="tex"></textarea>
                 <input class="s" type="submit" value="Postar!">

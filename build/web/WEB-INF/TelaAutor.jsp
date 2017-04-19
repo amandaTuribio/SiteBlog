@@ -43,7 +43,6 @@
                     out.println("</div><br>");
                 }
             %>
-
             <a href="Controller?tarefa=NovoPost"><img class="esquerdo-inferior"  src="Estilo/np.png"></a> 
     </body>
 </html>

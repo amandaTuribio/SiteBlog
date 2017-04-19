@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gerenciador.servlets;
 
 import gerenciador.beans.Usuario;
@@ -36,8 +32,7 @@ public class Cadastro implements Tarefa {
         }else{
             nivel = true;
         } 
-        
-        
+             
         Boolean emailValido = new UsuarioDAO().validarEmail(email);
         Boolean senhaValida = new Usuario().validarSenha(senha1, senha2);
 
@@ -45,7 +40,7 @@ public class Cadastro implements Tarefa {
             UsuarioDAO usu = new UsuarioDAO();
             try {
                 usu.cadastrar(email, senha1, dataEmTexto ,endereco, uf,  cidade, nivel, nome);
-            } catch (SQLException ex) { //ERRO AO CADASTRAR
+            } catch (SQLException ex) {
                 pagina ="cadastro.html";
                 return pagina;
             }

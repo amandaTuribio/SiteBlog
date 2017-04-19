@@ -14,7 +14,12 @@ and open the template in the editor.
   padding: 8% 0 0;
   margin: auto;
 }
-
+.log{
+    color: #616165;
+    font-family: "Trebuchet MS";
+    font-size: 15px;
+    font-weight: bold;
+}
 .botao01{
     background-color: #C0C0C0;
      border: 1px solid #CCCCCE;
@@ -112,7 +117,7 @@ div.posts{
 div.comen{
     background: rgba(225,225,225,0.1);
     margin: auto;
-    width:79%;
+    width:78%;
     height:95%;
     padding-bottom: 0.8%;
     padding-left: 25px;
@@ -190,6 +195,19 @@ li.home {
 li.h{
     float: left;
     padding-left: 19%;
+}
+
+li.sl{
+   float: left;
+    padding-left: 29%;
+}
+
+li.sl a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 25px;
+    text-decoration: none;
 }
 
 li.home a {

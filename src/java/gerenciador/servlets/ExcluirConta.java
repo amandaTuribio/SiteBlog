@@ -5,17 +5,14 @@
  */
 package gerenciador.servlets;
 
-import gerenciador.beans.Post;
-import gerenciador.dao.PostDAO;
 import gerenciador.dao.UsuarioDAO;
 import java.sql.SQLException;
-import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Amanda
+ * @author Amanda e Gabriel
  */
 public class ExcluirConta implements Tarefa {
 
@@ -36,7 +33,7 @@ public class ExcluirConta implements Tarefa {
         try {
             usu.exclui(email);
         } catch (SQLException ex) {
-            pagina = "/WEB-INF/index.jsp";
+            pagina = "index.jsp";
         }
         
         pagina = "cadastro.html";

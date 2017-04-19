@@ -8,10 +8,12 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <link rel="StyleSheet" type="text/css" href="Estilo/estilo.css">
         <title>Blog</title>
     </head>
     <body>
-        <h1>Vc esta esqueceu a tarefa</h1>
+          <h1>Você esta esqueceu a tarefa</h1>
+        
     </body>
 </html>

@@ -14,7 +14,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author Amanda
+ * @author Amanda e Gabriel
  */
 public class MPost implements Tarefa {
 
@@ -23,7 +23,7 @@ public class MPost implements Tarefa {
         Usuario usuario = new Filtro().getU(req);
         String pagina = null;
         
-        if(usuario == null){ //ususario nao logado
+        if(usuario == null){ 
             pagina = "index.jsp";
         }else{
             Collection<Post> posts = new PostDAO().buscaAutor(usuario.getEmail());   

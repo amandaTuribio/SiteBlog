@@ -1,12 +1,11 @@
 package gerenciador.beans;
 
-import java.io.PrintWriter;
-import java.util.Date;
 
 /**
  *
  * @author Amanda e Gabriel
  */
+
 public class Usuario {
     private String nome;
     private String email;

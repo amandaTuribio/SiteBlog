@@ -5,10 +5,7 @@
  */
 package gerenciador.servlets;
 
-import gerenciador.beans.Post;
 import gerenciador.beans.Usuario;
-import gerenciador.dao.PostDAO;
-import java.util.Collection;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -29,6 +26,5 @@ public class Conta implements Tarefa{
             pagina = "/WEB-INF/TelaAdmin.jsp";
         }
         return pagina;
-    }
-    
+    }    
 }

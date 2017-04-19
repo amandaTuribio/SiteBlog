@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package gerenciador.dao;
 
 import gerenciador.Factory.ConnectionFactory;
@@ -16,7 +12,7 @@ import java.util.Collection;
 
 /**
  *
- * @author Amanda
+ * @author Amanda e Gabriel
  */
 public class PostDAO {
     
@@ -90,8 +86,6 @@ public class PostDAO {
             return null;
         }
         return null;
-        
-        
     }
 
     public void exclui(String id) throws SQLException {
@@ -101,5 +95,6 @@ public class PostDAO {
         stmt.setString(1, id);
         
         stmt.execute();
-        stmt.close();    }
+        stmt.close();   
+    }
 }

@@ -4,14 +4,10 @@
     Author     : Amanda
 --%>
 <!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+
 <html>
     <head>
-        <title>Sistema de Blog</title>
+        <title>Blog</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="StyleSheet" type="text/css" href="Estilo/estilo.css">
@@ -60,7 +56,7 @@ and open the template in the editor.
                 <br/>
                 <br/>
                 <input class="s" type="submit" value="Alterar">
-                <input type="hidden" name="tarefa" value="Alterar">
+                <input type="hidden" name="tarefa" value="Alterar"> 
                 <a href="Controller?tarefa=ExcluirConta">Excluir Conta</a>
             </form>
                 

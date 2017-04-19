@@ -24,7 +24,6 @@ public class Login implements Tarefa {
         Usuario usuario = new UsuarioDAO().busca(email, senha);
  
         if(usuario == null) {
-            // USUARIO NAO TEM CADASTRO 
             pagina = "index.jsp";
             return pagina;
         }else {
@@ -36,11 +35,8 @@ public class Login implements Tarefa {
             
             Boolean n= new Filtro().getNivel(req);
 
-            if(n){ //ususario nao logado
-                pagina = "/WEB-INF/TelaPrincipal.jsp";
-            }else{
-                pagina = "/WEB-INF/TelaPrincipalSP.jsp";
-            }
+            
+            pagina = "/WEB-INF/TelaPrincipal.jsp";
             return pagina;
         }
     }
